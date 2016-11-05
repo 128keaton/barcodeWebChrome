@@ -43,7 +43,7 @@ function sendToPrinter() {
     // Replace any instances of the URLEncoded space char with +
     params = params.replace(/%20/g, '');
 
-    // Set correct header for form data 
+    // Set correct header for form data
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     // Handle request state change events
@@ -114,7 +114,8 @@ window.addEventListener('load', function(evt) {
 
 
     var request = new XMLHttpRequest();
-    request.open("GET", mainUrl + 'printers.php', false);
+    request.open("GET", mainUrl + 'printers.php', true);
+    request.timeout = 2000;
     request.setRequestHeader('Content-type', contentType);
 
     if (request.overrideMimeType) request.overrideMimeType(contentType);
@@ -125,7 +126,12 @@ window.addEventListener('load', function(evt) {
     } catch (e) {
         return null;
     }
-    if (request.status == 500 || request.status == 404 || request.status == 2 || (request.status == 0 && request.responseText == '')) return null;
+    if (request.status == 500 || request.status == 404 || request.status == 2 || (request.status == 0 && request.responseText == '')){
+      changeTagName(selectForm, 'img');
+      document.getElementById("button").disabled = true;
+    }
+
+
 
     lines = request.responseText.split('\n')
 
@@ -171,6 +177,19 @@ window.addEventListener('load', function(evt) {
     // Handle the bookmark form submit event with our addBookmark function
     document.getElementById('sku-form').addEventListener('submit', sendToPrinter);
 });
+
+function changeTagName(el, newTagName) {
+    var n = document.createElement(newTagName);
+    var attr = el.attributes;
+    for (var i = 0, len = attr.length; i < len; ++i) {
+        n.setAttribute(attr[i].name, attr[i].value);
+        n.src = "error.png";
+        n.style.height = '12px';
+    }
+    n.innerHTML = el.innerHTML;
+    el.parentNode.replaceChild(n, el);
+}
+
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     if (request.method == "getSelection")

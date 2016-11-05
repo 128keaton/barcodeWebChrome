@@ -1,39 +1,41 @@
 {
-  "manifest_version": 2,
-  "name": "Barcode Web",
-  "description": "Print barcodes straight from Chrome!",
-  "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
-  },
-  "commands": {
-           "_execute_browser_action": {
+    "manifest_version": 2,
+    "name": "Barcode Web",
+    "description": "Print barcodes straight from Chrome!",
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "commands": {
+        "_execute_browser_action": {
             "suggested_key": {
-              "windows": "Ctrl+B",
-              "mac": "Command+B",
-	      "linux": "Ctrl+B"
-     
+                "windows": "Ctrl+B",
+                "mac": "Command+B",
+                "linux": "Ctrl+B"
+
             }
-          }
-        },
-  "version": "1.3",
-  "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" },
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "scripts": ["menu.js"]
-  },
-  "permissions": [
-    "storage",
-    "commands",
-    "contextMenus",
-    "tabs",
-    "*://*/*",
-    "https://*/*",
-    "http://*/*"
-  ]
+        }
+    },
+    "version": "1.3",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["menu.js"]
+    },
+    "permissions": [
+        "storage",
+        "commands",
+        "contextMenus",
+        "tabs",
+        "*://*/*",
+        "https://*/*",
+        "http://*/*"
+    ]
 }
