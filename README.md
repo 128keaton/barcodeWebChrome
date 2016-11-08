@@ -1,4 +1,4 @@
-# barcodeWebChrome
+![](https://github.com/128keaton/barcodeWebChrome/blob/master/repo-assets/barcodeweb-banner.png)
 A Chrome extension designed to be used in conjunction with [barcodeWeb](https://github.com/hschreck/barcodeWeb)
 
 ## Setup:
