@@ -1,6 +1,9 @@
 <p align="center"><img src="https://github.com/128keaton/barcodeWebChrome/blob/master/repo-assets/barcodeweb-banner.png"></p>
 A Chrome extension designed for [barcodeWeb](https://github.com/hschreck/barcodeWeb)
 
+<p align="center"><img width=400px src="https://github.com/128keaton/barcodeWebChrome/blob/master/repo-assets/demo-gif.gif?raw=true">
+</p>
+
 ## Setup:
 Note: barcodeWeb must be setup *before* using barcodeWebChrome.
 
